@@ -1,0 +1,23 @@
+@if (loading) {
+  <p class="loading">Cargando noticias...</p>
+} @else {
+  <section class="news-container">
+    @for (article of articles; track article.url) {
+      <article class="news-card">
+        @if (article.urlToImage) {
+          <img
+            class="news-image"
+            [src]="article.urlToImage"
+            [alt]="article.title">
+        }
+        <div class="news-content">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.description }}</p>
+          <a [href]="article.url" target="_blank" class="read-more">
+            Leer más
+          </a>
+        </div>
+      </article>
+    }
+  </section>
+}
